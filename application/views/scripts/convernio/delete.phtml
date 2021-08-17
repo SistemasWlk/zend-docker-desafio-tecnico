@@ -1,0 +1,30 @@
+    <section class="section section-custom-1 bg-default" style="border: 0px solid black">
+        <div class="container" style="border: 0px solid black">
+            <div class="row row-50" style="border: 0px solid black">
+                <div class="col-xl-12" style="border: 0px solid black">
+                  <div class="inset-4">
+                    <div class="layout-1 wow fadeIn" style="border: 0px solid black">
+                        <h2 class="text-uppercase font-weight-bold ">Excluir Convênio</h2>
+                      <!-- <div class="layout-2-item"><a class="button button-sm button-style-1" href="#">Ver Todos</a></div> -->
+                    </div>
+                  </div>
+                </div>
+            </div> 
+            <div class="row row-50" style="border: 0px solid black">
+                <div class="col-xl-12" style="border: 0px solid black">
+                    <div class="inset-4">
+                        <?php if (isset($this->resp) && !is_null($this->resp)) :?>
+                        <div class="alert">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <?=$this->resp?>
+                        </div>
+                        <?php endif;?>
+                        <div class="actions">                             
+                            <a href="<?=$this->url(array('controller' => 'convernio', 'action' => 'add'), null, true) ?>" class="btn btn-sm btn-primary" role="button">Novo Registro</a>
+                            <a href="<?=$this->url(array('controller' => 'convernio', 'action' => 'index'), null, true) ?>" class="btn btn-sm btn-primary" role="button">Lista Registro</a>
+                        </div>     
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>

@@ -1,0 +1,95 @@
+    <section class="section section-custom-1 bg-default" style="border: 0px solid black">
+        <div class="container" style="border: 0px solid black">
+            <div class="row row-50" style="border: 0px solid black">
+                <div class="col-xl-12" style="border: 0px solid black">
+                  <div class="inset-4">
+                    <div class="layout-1 wow fadeIn" style="border: 0px solid black">
+                        <h2 class="text-uppercase font-weight-bold ">Alterar Paciente</h2>
+                      <!-- <div class="layout-2-item"><a class="button button-sm button-style-1" href="#">Ver Todos</a></div> -->
+                    </div>
+                  </div>
+                </div>
+            </div> 
+            <div class="row row-50" style="border: 0px solid black">
+                <div class="col-xl-12" style="border: 0px solid black">
+                  <div class="inset-4">
+                    <div class="layout-1 wow fadeIn" style="border: 0px solid black">
+                        <?php if (isset($this->resp) && !is_null($this->resp)) :?>
+                        <div class="alert">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <?=$this->resp?>
+                        </div>
+                        <?php endif;?>
+                    </div>
+                  </div>
+                </div>
+            </div> 
+            <div class="row row-50" style="border: 0px solid black">    
+                <div class="col-sm-3 wow fadeIn text-left">
+                    <!-- /section -->
+                    <div class="section">
+                        <!-- container --> 
+                        <div class="container">
+                            <!-- row --> 
+                            <div class="row">
+                                <div class="span12">          
+                                    <div class="widget ">
+                                        <div class="widget-content">
+                                            <form action="<?=$this->url(array('controller' => 'paciente', 'action' => 'edit'), null, true) ?>" method="POST">
+                                                <div class="fields">
+                                                    <div class="field">
+                                                        <!-- <pre><?php //var_dump($this->paciente);?></pre> -->
+                                                        <label for="nome">Nome</label>
+                                                        <input type="text" id="nome" name="nome" placeholder="Nome" size="50" value="<?=$this->paciente["nome"]?>">
+                                                        <input type="hidden" name="id" id="id" value="<?=$this->paciente["id"]?>">
+                                                        <input type="hidden" name="editar" id="editar" value="true">
+                                                    </div>
+                                                    <div class="field">
+                                                        <label for="sexo">Sexo</label>
+                                                        <br />
+                                                        <select name="sexo" id="sexo">
+                                                            <option value="m" <?php if ($this->paciente["sexo"] == "m") echo 'selected'; ?> >
+                                                                Masculino
+                                                            </option>
+                                                            <option value="f" <?php if ($this->paciente["sexo"] == "f") echo 'selected'; ?> >
+                                                                Ferminino
+                                                            </option>                                                            
+                                                        </select>
+                                                    </div>   
+                                                    <div class="field">
+                                                        <label for="data_nascimento">Data Nascimento</label>
+                                                        <br />
+                                                        <input type="date" id="data_nascimento" name="data_nascimento" placeholder="Data do Nascimento" value="<?=$this->paciente["data_nascimento"]?>">
+                                                    </div>    
+                                                    <div class="field">
+                                                        <label for="id_convernio">Convênio</label>
+                                                        <br />
+                                                        <select name="id_convernio" id="id_convernio">
+                                                            <?php foreach ($this->convernios as $convernio) :?>
+                                                            <option value="<?=$this->escape($convernio->id);?>" 
+                                                                <?php if ($this->paciente["id_convernio"] == $convernio->id) echo 'selected'; ?>
+                                                            >
+                                                                <?=$this->escape($convernio->descricao);?>
+                                                            </option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>                                                        
+                                                </div> 
+                                                <br />
+                                                <div class="actions">                             
+                                                    <button type="subumit" class="btn btn-primary " name="salvarpaciente" id="salvarpaciente">Salvar Registro</button>
+                                                    <a href="<?=$this->url(array('controller' => 'paciente', 'action' => 'index'), null, true) ?>" class="btn btn-primary" role="button">Lista Registros</a>
+                                                </div>                                                           
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                            <!-- /row --> 
+                        </div>
+                        <!-- /container --> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

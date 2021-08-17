@@ -1,0 +1,38 @@
+    <section class="section section-custom-1 bg-default" style="border: 0px solid black">
+        <div class="container" style="border: 0px solid black">
+            <div class="row row-50" style="border: 0px solid black">
+                <div class="col-xl-12" style="border: 0px solid black">
+                  <div class="inset-4">
+                    <div class="layout-1 wow fadeIn" style="border: 0px solid black">
+                        <h2 class="text-uppercase font-weight-bold ">Serviços</h2>
+                      <!-- <div class="layout-2-item"><a class="button button-sm button-style-1" href="#">Ver Todos</a></div> -->
+                    </div>
+                  </div>
+                </div>
+            </div> 
+
+            <div class="row row-50" style="border: 0px solid black">    
+                <!-- <div class="row row-30" style="border: 1px solid black"> -->
+                <?php foreach($this->servicos as $servico) : ?>
+                <div class="col-sm-3 wow fadeIn">
+                    <article class="tour-minimal context-dark">
+                        <div class="tour-minimal-inner img-overlay" style="background-image: url(images/home-3-2-258x273.jpg);">
+                            <div class="tour-minimal-header">
+                            </div>
+                            <div class="tour-minimal-main">
+                                <h3 class="tour-minimal-title font-weight-sbold">
+                                    <a href="<?=$this->url(array('controller' => $servico->descricao, 'action' => 'index'), null, true) ?>">
+                                        <?=$this->escape($servico->descricao)?>
+                                    </a>
+                                </h3>
+                            </div>
+                            <div class="tour-minimal-caption">
+                                <p><?=$this->escape($servico->descricao)?>.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <?php endforeach; ?> 
+            </div>
+        </div>
+    </section>

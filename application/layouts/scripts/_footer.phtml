@@ -1,0 +1,65 @@
+       <?php $url = "http://localhost:8098/";?>
+       <!-- Page Footer-->
+        <footer class="section footer-classic footer-classic-md">
+            <div class="container mt-0">
+                <div class="divider-2"></div>
+            </div>
+            <div class="footer-classic-aside">
+                <div class="container">
+                    <p class="rights">
+                        <span>&copy;&nbsp; </span>
+                        <span class="copyright-year"></span>
+                        <span>&nbsp;</span>
+                        <span>TS Cursos Desenvolvimentos</span>
+                        <span>. Todos os direitos reservados.</span>
+                        <span> Projetato&nbsp;por&nbsp;TS Cursos Desenvolvimentos</span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="<?=$url?>tema/js/core.min.js"></script>
+    <script src="<?=$url?>tema/js/script.js"></script>
+</body>
+</html>
+
+<script>
+    $("#salvarservico").click(function(){
+        if ( $('#descricao').val() == "" ) {
+            alert("Campo descrição obrigatório!"); 
+            return false;
+        }else{
+            $('form').submit();
+        }
+    });    
+
+    $("#salvarconvernio").click(function(){
+        if ( $('#descricao').val() == "" ) {
+            alert("Campo descrição obrigatório!"); 
+            return false;
+        }else{
+            $('form').submit();
+        }
+    });    
+
+    $("#salvarpaciente").click(function(){
+        if ( $('#nome').val() == "" ) {
+            alert("Campo descrição obrigatório!"); 
+            return false;
+        }else if( $('#sexo').val() == "" ){
+            alert("Campo sexo obrigatório!"); 
+            return false;  
+        }else if( $('#data_nascimento').val() == "" ){
+            alert("Campo data nascimento obrigatório!"); 
+            return false;
+        }else if( $('#id_convernio').val() == "" ){
+            alert("Campo conveênio obrigatório!"); 
+            return false;
+        }else{
+            $('form').submit();
+        }
+    });    
+
+
+</script>

@@ -1,0 +1,40 @@
+    <section class="section section-lg bg-default">
+        <div class="container">
+            <h3>Serviços</h3>
+            <br />
+            <?php if (isset($this->resp) && !is_null($this->resp)) :?>
+            <div class="alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <?=$this->resp?>
+            </div>
+            <?php endif;?>
+            <table class="table table-ordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($this->servicos as $servico) : ?>
+                    <tr>
+                        <td><?=$this->escape($servico->id);?></td>
+                        <td><?=$this->escape($servico->descricao);?></td>
+                        <td>
+                            <a href="<?=$this->url(array('controller'=>'servico','action'=>'edit', 'id'=>$servico->id));?>" class="btn btn-sm btn-primary">
+                                Editar
+                            </a>
+                            <a href="<?=$this->url(array('controller'=>'servico', 'action'=>'delete', 'id'=>$servico->id));?>" class="btn btn-sm btn-primary">
+                                Deletar
+                            </a>
+                        </td>
+                    </tr>  
+                    <?php endforeach; ?>         
+                </tbody>
+            </table>
+            <div class="form-wrap form-wrap-button">
+                <a href="<?=$this->url(array('controller' => 'servico', 'action' => 'add'), null, true) ?>" class="btn btn-primary" role="button">Novo Serviço</a>
+            </div>
+        </div>
+    </section>

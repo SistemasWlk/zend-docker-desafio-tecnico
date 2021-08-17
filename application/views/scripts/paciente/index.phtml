@@ -1,0 +1,40 @@
+    <section class="section section-lg bg-default">
+        <div class="container">
+            <h3>Pacientes</h3>
+            <br />
+            <table class="table table-ordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Sexo</th>
+                        <th>Data Nascimento</th>
+                        <th>Convêrnio</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($this->pacientes as $paciente) : ?>
+                    <tr>
+                        <td><?=$this->escape($paciente->id);?></td>
+                        <td><?=$this->escape($paciente->nome);?></td>
+                        <td><?=$this->escape($paciente->sexo) == 'm' ? 'Masculino' : 'Feminino';?></td>
+                        <td><?=implode('/',array_reverse(explode("-",$this->escape($paciente->data_nascimento))));?></td>
+                        <td><?=$this->escape($paciente->id_convernio);?></td>
+                        <td>
+                            <a href="<?=$this->url(array('controller'=>'paciente','action'=>'edit', 'id'=>$paciente->id));?>" class="btn btn-sm btn-primary">    
+                                Editar
+                            </a>
+                            <a href="<?=$this->url(array('controller'=>'paciente', 'action'=>'delete', 'id'=>$paciente->id));?>" class="btn btn-sm btn-primary">
+                                Deletar
+                            </a>
+                        </td>
+                    </tr>  
+                    <?php endforeach; ?>         
+                </tbody>
+            </table>
+            <div class="form-wrap form-wrap-button">
+                <a href="<?=$this->url(array('controller' => 'paciente', 'action' => 'add'), null, true) ?>" class="btn btn-primary" role="button">Novo Registro</a>
+            </div>
+        </div>
+    </section>

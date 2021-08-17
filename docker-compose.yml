@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  web-app-desafio-tecnico-zend:
+    build: .
+    ports:
+      - "8098:80"
+    volumes:
+      - ./:/var/www/html/zend-docker-desafio-tecnico/
+    networks:
+      - app-network-desafio-tecnico-zend
+
+  mysql-app-desafio-tecnico-zend:
+    image: migs/mysql-5.7:latest
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./_docker/dbdata:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: desafiotecnicozend01
+      MYSQL_ROOT_PASSWORD: desafiotecnicozend01
+    networks:
+      - app-network-desafio-tecnico-zend
+
+  phpmyadmin-app-desafio-tecnico-zend:
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - mysql-app-desafio-tecnico-zend
+    ports:
+      - 8099:80
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - app-network-desafio-tecnico-zend
+
+networks:
+  app-network-desafio-tecnico-zend:
+    driver: bridge
