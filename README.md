@@ -24,7 +24,7 @@ CONTAINER ID   IMAGE                                                      COMMAN
 47a03396250d   migs/mysql-5.7:latest                                      "docker-entrypoint.s…"   13 minutes ago   Up 13 minutes   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp   zend-docker-desafio-tecnico_mysql-app-desafio-tecnico-zend_1
 ```
 
-## Acesso
+## Endereço de Acesso
 
 - projeto: http://localhost:8098/
 - phpMyAdmin: http://localhost:8099/
